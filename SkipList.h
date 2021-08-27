@@ -71,10 +71,10 @@ public:
 private:    
     int _max_level;          //跳表的最大层
     int _skip_list_level;      //当前索引层
-    Node<Key,Value> *_header;            //头节点的指针
+    Node<Key,Value> *_header;       //头节点的指针
     std::ofstream _file_writer;
     std::ifstream _file_reader;
-    int element_count;     //统计当前元素个数
+    int element_count;                  //统计当前元素个数
 private:
     void get_key_value_from_string(const std::string& str, std::string* key, std::string* value);
     bool is_valid_string(const std::string& str);
@@ -126,6 +126,7 @@ int SkipList<K,V>::insert_element(const K key,const V value){
     return 1;
 }
 
+//显示表中的数据 
 template<typename K,typename V>
 void SkipList<K,V>::display_list(){
     std::cout <<"\n**** Skip List *****\n"<<std::endl;
@@ -140,6 +141,7 @@ void SkipList<K,V>::display_list(){
     }
 }
 
+//将表中的数据输出到文件中
 template<typename K,typename V>
 void SkipList<K,V>::dump_file(){
     std::cout << "dump_file"<<std::endl;
@@ -157,6 +159,7 @@ void SkipList<K,V>::dump_file(){
     return;
 }
 
+//下载文件中的数据信息
 template<typename K,typename V>
 void SkipList<K,V>::load_file(){
     _file_reader.open(STORE_FILE);
